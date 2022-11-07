@@ -1,4 +1,5 @@
 import RoutesApp from "./routes";
+import "./vars.css"
 
 
 function App() {

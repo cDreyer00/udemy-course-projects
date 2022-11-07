@@ -1,0 +1,55 @@
+.movie-infos {
+    margin: 0 auto;
+    margin-top: 18px;
+    display:  flex;
+    flex-direction:  column;
+    max-width: 800px;
+    padding: 0 8px;
+}
+
+.movie-infos h1{
+    margin: 14px 0;
+}
+
+.movie-infos img{
+    width: 900px;
+    max-width: 100%;
+    border-radius: 10px;
+    max-height: 340px;
+    object-fit: cover;
+}
+
+.movie-infos h3{
+    margin-top: 14px
+}
+
+.movie-infos span{
+    margin: 8px 0;
+}
+
+.movie-buttons button{
+    transition: all 0.3s;
+    margin-right: 12px;
+    margin-top: 14px;
+    margin-left: 0;
+    font-size: 20px;
+    border: 0;
+    outline: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.movie-buttons a{
+    transition: all 0.3s;
+    text-decoration: none;
+    color: black;
+}
+
+.movie-buttons button:hover{
+    background-color: green;
+    color: white;
+}
+.movie-buttons a:hover{
+    color: white;
+}
