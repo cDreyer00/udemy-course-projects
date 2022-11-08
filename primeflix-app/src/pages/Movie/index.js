@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, json } from "react-router-dom";
 import api from "../../services/api";
 import "./movie.css"
 
 function Movie() {
     const { id } = useParams();
-    const [movie, setMovie] = useState({})
-    const [loading, setLoading] = useState(true)
+    const [movie, setMovie] = useState({});
+    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     let avaliation = Math.round(movie.vote_average * 100) / 100;
 
@@ -24,6 +25,7 @@ function Movie() {
                 })
                 // movie not found
                 .catch(() => {
+                    navigate("/", { replace: true })
                 })
 
         }
@@ -32,7 +34,23 @@ function Movie() {
         setLoading(false)
 
         return () => { };
-    }, [])
+    }, [navigate, id])
+
+    function saveMovie(){
+        const moviesList = localStorage.getItem("@primeflix");
+
+        let moviesSaved = JSON.parse(moviesList) || [];
+        const hasMovie = moviesSaved.some((movieSaved) => movieSaved.id == movie.id); 
+
+        if(hasMovie){
+            alert("MOVIE ALREADY SAVED")
+            return;
+        }
+
+        moviesSaved.push(movie);
+        localStorage.setItem("@primeflix", JSON.stringify(moviesSaved));
+        alert("MOVIE SAVED");
+    }
 
     if (loading) {
         return (
@@ -50,8 +68,12 @@ function Movie() {
             <strong>Avaliation: {avaliation} / 10</strong>
 
             <div className="movie-buttons">
-                <button>Save</button>
-                <button><a href="#">Trailer</a></button>
+                <button onClick={saveMovie}>Save</button>
+                <a target="blank" rel="exterlan" href={`https://youtube.com/results?search_query=${movie.title} trailer`}>
+                    <button>
+                        Trailer
+                    </button>
+                </a>
             </div>
         </div>
     )
