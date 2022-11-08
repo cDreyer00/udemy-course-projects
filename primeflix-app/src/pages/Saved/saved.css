@@ -1,0 +1,40 @@
+.saved-movies{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.saved-movies h1{
+    margin-bottom: 14px;
+}
+
+.saved-movies span{
+    font-size: 18px;
+}
+
+.saved-movies ul{
+    max-width: 720px;
+    width: 80%;
+}
+
+.saved-movies ul li{
+    list-style:  none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.saved-movies div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.saved-movies div a{
+    text-decoration: none;
+    color: var(--blue);
+    margin-right: 14px;
+}
