@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Movie from "./pages/Movie";
@@ -10,13 +10,14 @@ function RoutesApp() {
     return (
         <BrowserRouter>
             <Header />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/movie/:id" element={<Movie />} />
-                <Route path="/saved" element={<SavedMovies />} />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/primeflix" element={<Home />} />
+                    <Route path="/movie/:id" element={<Movie />} />
+                    <Route path="/saved" element={<SavedMovies />} />
 
-                <Route path="*" element={<PageNotFound />} />
-            </Routes>
+                    <Route path="*" element={<PageNotFound />} />
+                </Routes>
         </BrowserRouter>
     )
 }
